@@ -1,0 +1,15 @@
+<h1 class="jquery">Hello JQuery!</h1>
+
+  <% if can? :create, Post %>
+    <%= link_to "new post", new_post_path %>
+  <% end %>
+<% @posts.each do |post| %>
+  <p>タイトル</p>
+  <span>
+    <%= link_to post.title, post_path(post.id) %>
+
+  </span>
+  <p>画像</p>
+  <%= attachment_image_tag post, :image, :fill, 100, 100, format: 'jpeg' %>
+
+<% end %>
